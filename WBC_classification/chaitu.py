@@ -21,7 +21,7 @@ import cv2
 num_classes = 4
 epochs = 20
 # BASE_PATH = '/home/ec2-user/cell_classifier/'
-BASE_DIR = 'H:\Projects\Blood_Classification\My_Work\last_sem_work'	
+#BASE_DIR = 'H:\Projects\Blood_Classification\My_Work\last_sem_work'	
 batch_size = 32
 
 def get_model():
@@ -74,7 +74,7 @@ def get_data(folder):
     return X,y
 
 
-X_train, y_train = get_data(BASE_DIR + '/TRAIN_Segment/')
+X_train, y_train = get_data('TRAIN_Segment/')
 
 encoder = LabelEncoder()
 encoder.fit(y_train)
@@ -101,7 +101,7 @@ model.save_weights('nn_big.h5')
 
 
 
-X_test, y_test = get_data(BASE_DIR + '/TEST_Segmented/')
+X_test, y_test = get_data('TEST_Segmented/')
 encoded_y_test = encoder.transform(y_test)
 y_test = np_utils.to_categorical(encoded_y_test)
 
