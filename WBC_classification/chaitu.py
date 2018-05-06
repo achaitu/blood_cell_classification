@@ -74,7 +74,7 @@ def get_data(folder):
     return X,y
 
 
-X_train, y_train = get_data('TRAIN_Segment/')
+X_train, y_train = get_data('segment_train/')
 
 encoder = LabelEncoder()
 encoder.fit(y_train)
@@ -101,7 +101,7 @@ model.save_weights('nn_big.h5')
 
 
 
-X_test, y_test = get_data('TEST_Segmented/')
+X_test, y_test = get_data('segment_test/')
 encoded_y_test = encoder.transform(y_test)
 y_test = np_utils.to_categorical(encoded_y_test)
 
